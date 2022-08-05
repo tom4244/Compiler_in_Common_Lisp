@@ -1,0 +1,13 @@
+$$
+$$
+boolean switch, on;
+int shade, color, stop, go;
+
+  if (on = true)
+    if (color = 2) write (stop);
+      else write (go);
+    endif
+  endif
+switch := true;
+shade := 1;
+$$

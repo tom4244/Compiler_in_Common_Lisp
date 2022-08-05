@@ -1,0 +1,26 @@
+$$
+$$
+
+
+int  max,sum;
+boolean j;
+
+i := 5;
+   
+sum := 1 + 3;
+
+$$
+int  max,sum;
+boolean i;
+   
+    sum := 0;
+    i := 1;
+    read( max);
+    while (i <=  max)  {
+          sum := sum + i;
+          i  := i + 1;
+          while (sum < max)
+          i := 3;
+     }
+     write (sum+max);
+$$

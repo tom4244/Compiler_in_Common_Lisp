@@ -1,0 +1,10 @@
+$$
+$$
+int huey,dewey; boolean louie; int a;
+
+huey := 1 + (2 - (3 + 4)/ 5) * 6;
+dewey := -7 / a + 8;
+louie := false;
+if (huey => dewey) louie := true; else huey := 0; endif
+write(louie);
+$$

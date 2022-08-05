@@ -1,0 +1,757 @@
+Lexeme: $$
+Z -> $$ $$ LP M $$ 
+Lexeme: $$
+Lexeme: int
+LP -> L 
+L -> D ; LP 
+D -> Q I 
+Q -> int 
+Lexeme: a
+I -> ID IP 
+a   1000   int
+Lexeme: ,
+IP -> , I 
+Lexeme: b
+I -> ID IP 
+b   1001   int
+Lexeme: ,
+IP -> , I 
+Lexeme: c
+I -> ID IP 
+c   1002   int
+Lexeme: ,
+IP -> , I 
+Lexeme: i
+I -> ID IP 
+i   1003   int
+Lexeme: ,
+IP -> , I 
+Lexeme: j
+I -> ID IP 
+j   1004   int
+Lexeme: ,
+IP -> , I 
+Lexeme: max
+I -> ID IP 
+max   1005   int
+Lexeme: ,
+IP -> , I 
+Lexeme: sum
+I -> ID IP 
+sum   1006   int
+Lexeme: ;
+IP -> & 
+op-stk -> NIL 
+Lexeme: boolean
+LP -> L 
+L -> D ; LP 
+D -> Q I 
+Q -> boolean 
+Lexeme: signal
+I -> ID IP 
+signal   1007   boolean
+Lexeme: ;
+IP -> & 
+op-stk -> NIL 
+Lexeme: if
+LP -> & 
+M -> S MP 
+S -> V 
+V -> if ( C ) S VP 
+Lexeme: (
+Lexeme: a
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+1   PUSHM   1000
+(P TP EP R E ) S VP MP $$ @)
+ NIL
+Lexeme: =
+PP -> & 
+TP -> & 
+EP -> & 
+R -> = 
+EQU -> op-stack
+Lexeme: 3
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+2   PUSHI   3
+(P TP EP ) S VP MP $$ @)
+ (EQU)
+Lexeme: )
+TP -> & 
+op-stk -> EQU 
+3   EQU   
+(TP EP ) S VP MP $$ @)
+ NIL
+op-stk -> NIL 
+4   JUMPZ   -998
+(TP EP ) S VP MP $$ @)
+ NIL
+EP -> & 
+Lexeme: signal
+S -> A 
+A -> ID := E ; 
+1007 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: false
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> false 
+5   PUSHI   0
+(P TP EP ; VP MP $$ @)
+ (POPM 1007)
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> POPM 
+6   POPM   1007
+(; VP MP $$ @)
+ NIL
+op-stk -> NIL 
+Lexeme: endif
+VP -> endif 
+Lexeme: if
+MP -> M 
+M -> S MP 
+S -> V 
+V -> if ( C ) S VP 
+Lexeme: (
+Lexeme: a
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+7   PUSHM   1000
+(P TP EP R E ) S VP MP $$ @)
+ NIL
+Lexeme: <
+PP -> & 
+TP -> & 
+EP -> & 
+R -> < 
+LES -> op-stack
+Lexeme: b
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+8   PUSHM   1001
+(P TP EP ) S VP MP $$ @)
+ (LES)
+Lexeme: )
+PP -> & 
+TP -> & 
+op-stk -> LES 
+9   LES   
+(TP EP ) S VP MP $$ @)
+ NIL
+op-stk -> NIL 
+10   JUMPZ   -998
+(TP EP ) S VP MP $$ @)
+ NIL
+EP -> & 
+Lexeme: a
+S -> A 
+A -> ID := E ; 
+1000 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: c
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+11   PUSHM   1002
+(P TP EP ; VP MP $$ @)
+ (POPM 1000)
+Lexeme: ;
+PP -> & 
+TP -> & 
+EP -> & 
+op-stk -> POPM 
+12   POPM   1000
+(; VP MP $$ @)
+ NIL
+op-stk -> NIL 
+Lexeme: endif
+VP -> endif 
+Lexeme: max
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1005 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: 3
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+13   PUSHI   3
+(P TP EP ; MP $$ @)
+ (POPM 1005)
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> POPM 
+14   POPM   1005
+(; MP $$ @)
+ NIL
+op-stk -> NIL 
+Lexeme: sum
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1006 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: 0
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+15   PUSHI   0
+(P TP EP ; MP $$ @)
+ (POPM 1006)
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> POPM 
+16   POPM   1006
+(; MP $$ @)
+ NIL
+op-stk -> NIL 
+Lexeme: i
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1003 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: 1
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+17   PUSHI   1
+(P TP EP ; MP $$ @)
+ (POPM 1003)
+Lexeme: *
+TP -> * F TP 
+Lexeme: (
+F -> P 
+P -> ( E ) 
+Lexeme: (
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ( E ) 
+Lexeme: max
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+18   PUSHM   1005
+(P TP EP ) TP EP ) TP EP ; MP $$ @)
+ (( ( * POPM 1003 NIL)
+Lexeme: -
+PP -> & 
+TP -> & 
+EP -> - T EP 
+Lexeme: 2
+T -> F TP 
+F -> P 
+P -> IN 
+19   PUSHI   2
+(P TP EP ) TP EP ) TP EP ; MP $$ @)
+ (- ( ( * POPM 1003 NIL)
+Lexeme: )
+TP -> & 
+op-stk -> - 
+20   SUB   
+(TP EP ) TP EP ) TP EP ; MP $$ @)
+ (( ( * POPM 1003 NIL)
+op-stk -> ( 
+EP -> & 
+Lexeme: -
+TP -> & 
+EP -> - T EP 
+Lexeme: sum
+T -> F TP 
+F -> P 
+P -> ID PP 
+21   PUSHM   1006
+(P TP EP ) TP EP ; MP $$ @)
+ (- ( * POPM 1003 NIL)
+Lexeme: )
+PP -> & 
+TP -> & 
+op-stk -> - 
+22   SUB   
+(TP EP ) TP EP ; MP $$ @)
+ (( * POPM 1003 NIL)
+op-stk -> ( 
+EP -> & 
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> * 
+23   MUL   
+(; MP $$ @)
+ (POPM 1003 NIL)
+op-stk -> POPM 
+24   POPM   1003
+(; MP $$ @)
+ (NIL)
+op-stk -> NIL 
+Lexeme: j
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1004 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: (
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ( E ) 
+Lexeme: 1
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+25   PUSHI   1
+(P TP EP ) TP EP ; MP $$ @)
+ (( POPM 1004)
+Lexeme: *
+TP -> * F TP 
+Lexeme: 3
+F -> P 
+P -> IN 
+26   PUSHI   3
+(P TP EP ) TP EP ; MP $$ @)
+ (* ( POPM 1004)
+Lexeme: )
+TP -> & 
+op-stk -> * 
+27   MUL   
+(TP EP ) TP EP ; MP $$ @)
+ (( POPM 1004)
+op-stk -> ( 
+EP -> & 
+Lexeme: *
+TP -> * F TP 
+Lexeme: (
+F -> P 
+P -> ( E ) 
+Lexeme: sum
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+28   PUSHM   1006
+(P TP EP ) TP EP ; MP $$ @)
+ (( * POPM 1004 NIL)
+Lexeme: +
+PP -> & 
+TP -> & 
+EP -> + T EP 
+Lexeme: (
+T -> F TP 
+F -> P 
+P -> ( E ) 
+Lexeme: sum
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+29   PUSHM   1006
+(P TP EP ) TP EP ) TP EP ; MP $$ @)
+ (( + ( * POPM 1004 NIL)
+Lexeme: *
+PP -> & 
+TP -> * F TP 
+Lexeme: 3
+F -> P 
+P -> IN 
+30   PUSHI   3
+(P TP EP ) TP EP ) TP EP ; MP $$ @)
+ (* ( + ( * POPM 1004 NIL)
+Lexeme: )
+TP -> & 
+op-stk -> * 
+31   MUL   
+(TP EP ) TP EP ) TP EP ; MP $$ @)
+ (( + ( * POPM 1004 NIL)
+op-stk -> ( 
+EP -> & 
+Lexeme: -
+TP -> & 
+EP -> - T EP 
+32   ADD   
+(EP ) TP EP ; MP $$ @)
+ (( * POPM 1004 NIL)
+Lexeme: i
+T -> F TP 
+F -> P 
+P -> ID PP 
+33   PUSHM   1003
+(P TP EP ) TP EP ; MP $$ @)
+ (- ( * POPM 1004 NIL)
+Lexeme: *
+PP -> & 
+TP -> * F TP 
+Lexeme: 2
+F -> P 
+P -> IN 
+34   PUSHI   2
+(P TP EP ) TP EP ; MP $$ @)
+ (* - ( * POPM 1004 NIL)
+Lexeme: )
+TP -> & 
+op-stk -> * 
+35   MUL   
+(TP EP ) TP EP ; MP $$ @)
+ (- ( * POPM 1004 NIL)
+op-stk -> - 
+36   SUB   
+(TP EP ) TP EP ; MP $$ @)
+ (( * POPM 1004 NIL)
+op-stk -> ( 
+EP -> & 
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> * 
+37   MUL   
+(; MP $$ @)
+ (POPM 1004 NIL)
+op-stk -> POPM 
+38   POPM   1004
+(; MP $$ @)
+ (NIL)
+op-stk -> NIL 
+Lexeme: signal
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1007 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: true
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> true 
+39   PUSHI   1
+(P TP EP ; MP $$ @)
+ (POPM 1007)
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> POPM 
+40   POPM   1007
+(; MP $$ @)
+ NIL
+op-stk -> NIL 
+Lexeme: read
+MP -> M 
+M -> S MP 
+S -> H 
+H -> read ( I ) ; 
+Lexeme: (
+Lexeme: max
+I -> ID IP 
+41   PUSHSTD   
+(I ) ; MP $$ @)
+ NIL
+42   POPM   1005
+(I ) ; MP $$ @)
+ NIL
+Lexeme: ,
+IP -> , I 
+Lexeme: signal
+I -> ID IP 
+43   PUSHSTD   
+(I ) ; MP $$ @)
+ NIL
+44   POPM   1007
+(I ) ; MP $$ @)
+ NIL
+Lexeme: )
+IP -> & 
+Lexeme: ;
+op-stk -> NIL 
+Lexeme: while
+MP -> M 
+M -> S MP 
+S -> W 
+W -> while ( C ) S JMP 
+45   LABEL   -997
+(W MP $$ @)
+ NIL
+Lexeme: (
+Lexeme: i
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+46   PUSHM   1003
+(P TP EP R E ) S JMP MP $$ @)
+ NIL
+Lexeme: <
+PP -> & 
+TP -> & 
+EP -> & 
+R -> < 
+LES -> op-stack
+Lexeme: sum
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+47   PUSHM   1006
+(P TP EP ) S JMP MP $$ @)
+ (LES)
+Lexeme: )
+PP -> & 
+TP -> & 
+op-stk -> LES 
+48   LES   
+(TP EP ) S JMP MP $$ @)
+ NIL
+op-stk -> NIL 
+49   JUMPZ   -998
+(TP EP ) S JMP MP $$ @)
+ NIL
+EP -> & 
+Lexeme: {
+S -> Y 
+Y -> { M } 
+Lexeme: sum
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1006 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: sum
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+50   PUSHM   1006
+(P TP EP ; MP } JMP MP $$ @)
+ (POPM 1006)
+Lexeme: +
+PP -> & 
+TP -> & 
+EP -> + T EP 
+Lexeme: i
+T -> F TP 
+F -> P 
+P -> ID PP 
+51   PUSHM   1003
+(P TP EP ; MP } JMP MP $$ @)
+ (+ POPM 1006 NIL)
+Lexeme: ;
+PP -> & 
+TP -> & 
+EP -> & 
+op-stk -> + 
+52   ADD   
+(; MP } JMP MP $$ @)
+ (POPM 1006 NIL)
+op-stk -> POPM 
+53   POPM   1006
+(; MP } JMP MP $$ @)
+ (NIL)
+op-stk -> NIL 
+Lexeme: i
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+1003 -> op-stack
+POPM -> op-stack
+Lexeme: :=
+Lexeme: -
+E -> T EP 
+T -> F TP 
+F -> - P 
+54   PUSHI   -1
+(F TP EP ; MP } JMP MP $$ @)
+ (POPM 1003)
+Lexeme: i
+P -> ID PP 
+55   PUSHM   1003
+(P TP EP ; MP } JMP MP $$ @)
+ (POPM 1003)
+56   MUL   
+(P TP EP ; MP } JMP MP $$ @)
+ (POPM 1003)
+Lexeme: +
+PP -> & 
+TP -> & 
+EP -> + T EP 
+Lexeme: 1
+T -> F TP 
+F -> P 
+P -> IN 
+57   PUSHI   1
+(P TP EP ; MP } JMP MP $$ @)
+ (+ POPM 1003 NIL)
+Lexeme: ;
+TP -> & 
+EP -> & 
+op-stk -> + 
+58   ADD   
+(; MP } JMP MP $$ @)
+ (POPM 1003 NIL)
+op-stk -> POPM 
+59   POPM   1003
+(; MP } JMP MP $$ @)
+ (NIL)
+op-stk -> NIL 
+Lexeme: }
+MP -> & 
+Lexeme: write
+60   JUMP   45
+(JMP MP $$ @)
+ NIL
+MP -> M 
+M -> S MP 
+S -> G 
+G -> write ( E ) ; 
+Lexeme: (
+Lexeme: sum
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+61   PUSHM   1006
+(P TP EP ) ; MP $$ @)
+ NIL
+Lexeme: +
+PP -> & 
+TP -> & 
+EP -> + T EP 
+Lexeme: max
+T -> F TP 
+F -> P 
+P -> ID PP 
+62   PUSHM   1005
+(P TP EP ) ; MP $$ @)
+ (+)
+Lexeme: )
+PP -> & 
+TP -> & 
+op-stk -> + 
+63   ADD   
+(TP EP ) ; MP $$ @)
+ NIL
+op-stk -> NIL 
+EP -> & 
+Lexeme: ;
+op-stk -> NIL 
+64   POPSTD   
+(; MP $$ @)
+ NIL
+Lexeme: $$
+MP -> & 
+
+Source file parsing finished with no errors.
+
+Assembly Code Listing
+
+1 PUSHM 1000
+2 PUSHI 3
+3 EQU 
+4 JUMPZ 7
+5 PUSHI 0
+6 POPM 1007
+7 PUSHM 1000
+8 PUSHM 1001
+9 LES 
+10 JUMPZ 13
+11 PUSHM 1002
+12 POPM 1000
+13 PUSHI 3
+14 POPM 1005
+15 PUSHI 0
+16 POPM 1006
+17 PUSHI 1
+18 PUSHM 1005
+19 PUSHI 2
+20 SUB 
+21 PUSHM 1006
+22 SUB 
+23 MUL 
+24 POPM 1003
+25 PUSHI 1
+26 PUSHI 3
+27 MUL 
+28 PUSHM 1006
+29 PUSHM 1006
+30 PUSHI 3
+31 MUL 
+32 ADD 
+33 PUSHM 1003
+34 PUSHI 2
+35 MUL 
+36 SUB 
+37 MUL 
+38 POPM 1004
+39 PUSHI 1
+40 POPM 1007
+41 PUSHSTD 
+42 POPM 1005
+43 PUSHSTD 
+44 POPM 1007
+45 LABEL 
+46 PUSHM 1003
+47 PUSHM 1006
+48 LES 
+49 JUMPZ 61
+50 PUSHM 1006
+51 PUSHM 1003
+52 ADD 
+53 POPM 1006
+54 PUSHI -1
+55 PUSHM 1003
+56 MUL 
+57 PUSHI 1
+58 ADD 
+59 POPM 1003
+60 JUMP 45
+61 PUSHM 1006
+62 PUSHM 1005
+63 ADD 
+64 POPSTD 
+  
+Symbol Table
+
+a 1000 int
+b 1001 int
+c 1002 int
+i 1003 int
+j 1004 int
+max 1005 int
+sum 1006 int
+signal 1007 boolean
+  

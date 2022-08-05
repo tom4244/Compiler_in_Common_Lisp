@@ -1,0 +1,365 @@
+Z -> $$ $$ LP M $$ 
+LP -> L 
+L -> D ; LP 
+D -> Q I 
+Q -> int 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> & 
+LP -> L 
+L -> D ; LP 
+D -> Q I 
+Q -> boolean 
+I -> ID IP 
+IP -> & 
+LP -> & 
+M -> S MP 
+S -> V 
+V -> if ( C ) S VP 
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+R -> = 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> false 
+TP -> & 
+EP -> & 
+VP -> endif 
+MP -> M 
+M -> S MP 
+S -> V 
+V -> if ( C ) S VP 
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+R -> < 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+VP -> endif 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> * F TP 
+F -> P 
+P -> ( E ) 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ( E ) 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> - T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+TP -> & 
+EP -> - T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ( E ) 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> * F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+TP -> * F TP 
+F -> P 
+P -> ( E ) 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> + T EP 
+T -> F TP 
+F -> P 
+P -> ( E ) 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> * F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+TP -> & 
+EP -> - T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> * F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> true 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> H 
+H -> read ( I ) ; 
+I -> ID IP 
+IP -> , I 
+I -> ID IP 
+IP -> & 
+MP -> M 
+M -> S MP 
+S -> W 
+W -> while ( C ) S JMP 
+C -> E R E 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+R -> < 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+S -> Y 
+Y -> { M } 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> + T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+MP -> M 
+M -> S MP 
+S -> A 
+A -> ID := E ; 
+E -> T EP 
+T -> F TP 
+F -> - P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> + T EP 
+T -> F TP 
+F -> P 
+P -> IN 
+TP -> & 
+EP -> & 
+MP -> & 
+MP -> M 
+M -> S MP 
+S -> G 
+G -> write ( E ) ; 
+E -> T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> + T EP 
+T -> F TP 
+F -> P 
+P -> ID PP 
+PP -> & 
+TP -> & 
+EP -> & 
+MP -> & 
+
+Source file parsing finished with no errors.
+
+Assembly Code Listing
+
+1 PUSHM 1000
+2 PUSHI 3
+3 EQU 
+4 JUMPZ 7
+5 PUSHI 0
+6 POPM 1007
+7 PUSHM 1000
+8 PUSHM 1001
+9 LES 
+10 JUMPZ 13
+11 PUSHM 1002
+12 POPM 1000
+13 PUSHI 3
+14 POPM 1005
+15 PUSHI 0
+16 POPM 1006
+17 PUSHI 1
+18 PUSHM 1005
+19 PUSHI 2
+20 SUB 
+21 PUSHM 1006
+22 SUB 
+23 MUL 
+24 POPM 1003
+25 PUSHI 1
+26 PUSHI 3
+27 MUL 
+28 PUSHM 1006
+29 PUSHM 1006
+30 PUSHI 3
+31 MUL 
+32 ADD 
+33 PUSHM 1003
+34 PUSHI 2
+35 MUL 
+36 SUB 
+37 MUL 
+38 POPM 1004
+39 PUSHI 1
+40 POPM 1007
+41 PUSHSTD 
+42 POPM 1005
+43 PUSHSTD 
+44 POPM 1007
+45 LABEL 
+46 PUSHM 1003
+47 PUSHM 1006
+48 LES 
+49 JUMPZ 61
+50 PUSHM 1006
+51 PUSHM 1003
+52 ADD 
+53 POPM 1006
+54 PUSHI -1
+55 PUSHM 1003
+56 MUL 
+57 PUSHI 1
+58 ADD 
+59 POPM 1003
+60 JUMP 45
+61 PUSHM 1006
+62 PUSHM 1005
+63 ADD 
+64 POPSTD 
+  
+Symbol Table
+
+a 1000 int
+b 1001 int
+c 1002 int
+i 1003 int
+j 1004 int
+max 1005 int
+sum 1006 int
+signal 1007 boolean
+  

@@ -1,0 +1,16 @@
+$$
+$$
+int here, there, volume;
+boolean emit, twist;
+
+if (emit = true) volume := 10;
+  else {
+         volume := 0;
+       }
+endif   
+while (emit /= false)
+{
+  write (volume);
+  read (twist, there);
+}
+$$
