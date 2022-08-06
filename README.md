@@ -12,11 +12,11 @@ With this command as shown, the program will display and save to the output file
 
 Optionally, more information can be displayed and saved in the output file by entering one of the following words after "lisp" in the command line:
 
-`long`:  Prints out the long version of productions, for example:
+`long`:  Prints out the long version of productions, for example:<br>  
 `<Expression>  ::= <Expression> + <Term>  | <Expression>  - <Term>  | <Term>`.
 
-`short`: Prints out the abbreviated version of productions, for example
-            `E  ->  T  EP`.
+`short`: Prints out the abbreviated version of productions, for example:<br>  
+`E  ->  T  EP`.
 
 `debug`: More verbose output to help in checking/debugging including the short version of productions, periodic stack contents, items being pushed to and popped from the `op-stack`, and lines from the assembly table as these things occur.
 
